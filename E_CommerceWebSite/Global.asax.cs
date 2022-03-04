@@ -14,6 +14,7 @@ namespace E_Ticaret
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+          /*  RouteTable.Routes.MapRoute(name: "default", url: "Home/Index", defaults: new { controller = "Home", action = "Index" });*/
         }
     }
 }

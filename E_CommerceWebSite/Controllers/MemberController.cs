@@ -25,8 +25,6 @@ namespace E_CommerceWebSite.Controllers
            
             bool result = Membership.ValidateUser(u.UserName, u.Password);
             bool role = Roles.IsUserInRole(u.UserName, "Admin");
-           
-
             if (result)
             {
                
@@ -39,7 +37,8 @@ namespace E_CommerceWebSite.Controllers
 
                 Session["UserName"] =u.UserName;
                 Session["UserID"] = u.UserId;
-               
+         
+
                 var query = from client in Context.Connection.Client join
                clientadress in Context.Connection.ClientAdress on client.Id equals clientadress.ClientID
                             where client.UserName == u.UserName
@@ -56,22 +55,21 @@ namespace E_CommerceWebSite.Controllers
                     return RedirectToAction("Index", "Admin");
                 }
                 else
-
                     return RedirectToAction("Index", "Home");
             }
             else
             {
-                ViewBag.Message = "User name or password is wrong";
+                ViewBag.Message = "User name or password is incorrect";
                 ViewBag.result = role.ToString();
                 return View();
             }
-
         }
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             Session.Remove("UserName");
             Session.Remove("ActiveCart");
+            Session.Remove("AdminUser");
             //Session.RemoveAll();
             return RedirectToAction("Index", "Home");
         }
@@ -91,11 +89,10 @@ namespace E_CommerceWebSite.Controllers
                 string pwd = mu.ResetPassword(u.SqAnswer);
                 mu.ChangePassword(pwd, u.Password);
                 return RedirectToAction("Login");
-
             }
             else
             {
-                ViewBag.message = "Error ";
+                ViewBag.message = "Error";
                 return View();
             }
 
@@ -104,9 +101,7 @@ namespace E_CommerceWebSite.Controllers
        
         public ActionResult AddClient()
         {
-           
             return View();
-
         }
         [HttpPost]
         public ActionResult AddClient(Client client,ClientAdress clientAdress)

@@ -43,6 +43,7 @@ namespace E_CommerceWebSite.Controllers
             TempData["ProductId"]=id;
             TempData.Keep();
             ViewBag.ProductPropertyValues = Context.Connection.ProductProperty.Where(x => x.ProductID == id).ToList();
+
            List <Client> c = Context.Connection.Client.ToList();
             List<UserComments> u = Context.Connection.UserComments.Where(x => x.IsApproved == true &&x.ProductID==id).ToList();
             var query = from client in c
@@ -86,11 +87,12 @@ namespace E_CommerceWebSite.Controllers
             catch (Exception x)
             {
 
-                throw;
+                return;
             }
             finally
             {
-                Response.Redirect("ProductDetail?id=" + id);
+                RedirectToAction("Home", "ProductDetail?id=" + id);
+               // Response.Redirect("/Home/ProductDetail?id=" + id);
             }
           
            
@@ -127,10 +129,7 @@ namespace E_CommerceWebSite.Controllers
             Context.Connection.SaveChanges();
             return RedirectToAction("Index");
         }
-        /*public ActionResult Comments()
-        {
-            
-        }*/
+       
         public ActionResult MyCart()
         {
            

@@ -28,10 +28,10 @@ namespace Mvc_template.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Add(User k)
+        public ActionResult Add(User u)
         {
             MembershipCreateStatus status;
-            Membership.CreateUser(k.UserName, k.Password, k.Email, k.SecurityQuestion, k.SqAnswer, true, out status);
+            Membership.CreateUser(u.UserName, u.Password, u.Email, u.SecurityQuestion, u.SqAnswer, true, out status);
             string message = "";
             switch (status)
             {

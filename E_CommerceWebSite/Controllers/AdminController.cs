@@ -144,10 +144,7 @@ namespace E_CommerceWebSite.Controllers
             Context.Connection.SaveChanges();
             return RedirectToAction("Brands");
         }
-        public ActionResult Properties()
-        {
-            return View(Context.Connection.PropertyType.ToList());
-        }
+      
         public ActionResult PropertyType()
         {
             return View(Context.Connection.PropertyType.ToList());
