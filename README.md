@@ -9,7 +9,7 @@ Asp.net MVC, C#, Ajax, Entity Framework-Db first approach
 * Role managment
 * Partial Views/Widgets
 ### Functions
-* Admin
+#### Admin
 * Assign role
 * Add product
 * Add brand
@@ -20,7 +20,7 @@ Asp.net MVC, C#, Ajax, Entity Framework-Db first approach
 * Add property type
 * Add product property value 
 * Approve comments
-* Members/Users
+#### Members/Users
 * Edit profile
 * Change password
 * Comment 
