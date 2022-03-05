@@ -1,5 +1,5 @@
 # Description
-Türkçe açıklama için ->
+Türkçe açıklama için -> [linky](TrReadme.md)
 ### Tools and Technologies used in this project;
 Asp.net MVC, C#, Ajax, Entity Framework-Db first approach
 ### Features
