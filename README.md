@@ -5,6 +5,7 @@ Asp.net MVC, C#, Ajax, Entity Framework-Db first approach
 ### Features
 * Membership
 * Authorization
+* Authentication
 * Role managment
 * Partial Views/Widgets
 ### Functions
